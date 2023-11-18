@@ -2,6 +2,13 @@
 
 import time
 import sys
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-m", "--median", type=int)
+
+args = parser.parse_args()
+median = args.median
 
 EMULATE_HX711=False
 
@@ -62,7 +69,7 @@ while True:
         # print binary_string + " " + np_arr8_string
         
         # Prints the weight. Comment if you're debbuging the MSB and LSB issue.
-        val = hx.get_weight(5)
+        val = hx.get_weight(median)
         print(val)
 
         # To get weight from both channels (if you have load cells hooked up 
