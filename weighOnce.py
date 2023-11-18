@@ -60,7 +60,7 @@ while True:
       if keyboard.read_key() == "m":
         val=hx.get_weight(median)
         print(val);
-        cleanAndExit()
+      break
 
   except (SystemExit):
     cleanAndExit()
