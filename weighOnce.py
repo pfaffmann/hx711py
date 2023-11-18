@@ -3,6 +3,7 @@
 import time
 import sys
 import argparse
+import keyboard
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-m", "--median", type=int, default=5)
@@ -49,14 +50,16 @@ hx.set_reading_format("MSB", "MSB")
 hx.set_reference_unit(referenceUnit)
 
 hx.reset()
-
+hx.tare()
 # to use both channels, you'll need to tare them both
 #hx.tare_A()
 #hx.tare_B()
-try:
-
-  val=hx.get_weight(median)
-  print(val)
-
-except (KeyboardInterrupt, SystemExit):
+while True:
+  try:
+      if keyboard.read_key() == "m":
+        val=hx.get_weight(median)
+        print(val);
         cleanAndExit()
+
+  except (SystemExit):
+    cleanAndExit()
