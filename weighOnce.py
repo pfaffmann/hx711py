@@ -51,6 +51,7 @@ hx.set_reference_unit(referenceUnit)
 
 hx.reset()
 hx.tare()
+print("Tare done! Press 'm' to weigh ...")
 # to use both channels, you'll need to tare them both
 #hx.tare_A()
 #hx.tare_B()
